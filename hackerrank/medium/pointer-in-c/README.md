@@ -1,4 +1,4 @@
-# Functions in C
+# Pointers in C
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -50,30 +50,28 @@ Note: Input/ouput will be automatically handled. You only have to complete the f
 **Language:** C  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-06T18:15:17.985Z  
+**Submitted:** 2026-08-06T18:18:28.475Z  
 
 ```c
 #include <stdio.h>
-/*
-Add `int max_of_four(int a, int b, int c, int d)` here.
-*/
-int max_of_four(int a, int b, int c, int d) {
+#include <stdlib.h>
+void update(int *a,int *b) {
+    // Complete this function    
     
-    int max = a;
+    int temp = *a;
     
-    if (b > max) max = b;
-    if (c > max) max = c;
-    if (d > max) max = d;
-    
-    return max;
+    *a = temp + *b;
+    *b = abs(temp - *b);
 }
 
 int main() {
-    int a, b, c, d;
-    scanf("%d %d %d %d", &a, &b, &c, &d);
-    int ans = max_of_four(a, b, c, d);
-    printf("%d", ans);
+    int a, b;
+    int *pa = &a, *pb = &b;
     
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
     return 0;
 }
 
